@@ -184,8 +184,8 @@ const UserHomePage = () => {
             data.stores.map((store, index) => (
               <li
                 key={index}
-                className="flex justify-between items-center text-gray-600 border-b pb-2">
-                <span className="text-xl">{store.name}</span>
+                className="flex justify-between items-center text-gray-600">
+                <span className="text-xl">{store.store_name}</span>
               </li>
             ))
           ) : (

@@ -202,7 +202,7 @@ const StorePage = () => {
                                 key={store.id}
                                 to={store.link_store}
                               > */}
-                                <div className="mb-4">
+                                <div className="flex flex-col flex-wrap mb-4 truncate">
                                   <p className="text-lg">{t("Store Link")}:</p>
                                   <Link
                                     href={store.link_store || "#"}
