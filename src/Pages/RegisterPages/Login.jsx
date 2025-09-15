@@ -3,8 +3,8 @@ import { useNavigate,Link } from 'react-router-dom'
 import ImageLogo from "../../../public/Images/LogoImage.png";
 import axios from 'axios';
 import { useAuth } from '../../Context/Auth';
-import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { toast } from 'react-toastify';
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const LoginUser =()=>{
     const navigate = useNavigate();
@@ -110,12 +110,12 @@ const LoginUser =()=>{
                                         required
                                     />
                                     {show ? (
-                                        <IoMdEye
+                                        <IoEye
                                             className="absolute top-4 right-2 text-2xl text-right text-secoundColor cursor-pointer"
                                             onClick={() => setShow(!show)}
                                         />
                                     ) : (
-                                        <IoMdEyeOff
+                                        <IoEyeOff
                                             className="absolute top-4 right-2 text-2xl text-right text-secoundColor cursor-pointer"
                                             onClick={() => setShow(!show)}
                                         />
