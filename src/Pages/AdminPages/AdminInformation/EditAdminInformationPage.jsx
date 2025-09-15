@@ -100,7 +100,7 @@ const EditAdminInformationPage = () => {
             // });
 
             const response = await axios.post(
-                ` https://login.wegostores.com/admin/v1/contact_us/update/${contactId}`,
+                ` https://bcknd.wegostores.com/public/admin/v1/contact_us/update/${contactId}`,
                 formData,
                 {
                     headers: {

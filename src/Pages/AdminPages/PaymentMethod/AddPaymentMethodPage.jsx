@@ -102,7 +102,7 @@ const AddPaymentMethodPage = () => {
   
 
       const response = await axios.post(
-        " https://login.wegostores.com/admin/v1/payment/method/create",
+        " https://bcknd.wegostores.com/public/admin/v1/payment/method/create",
         formData,
         {
           headers: {

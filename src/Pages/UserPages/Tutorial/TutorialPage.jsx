@@ -20,7 +20,7 @@ const TutorialPage = () => {
     const fetchData = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get('https://login.wegostores.com/user/v1/tutorial', {
+            const response = await axios.get('https://bcknd.wegostores.com/public/user/v1/tutorial', {
                 headers: {
                     Authorization: `Bearer ${auth.user.token}`,
                 },

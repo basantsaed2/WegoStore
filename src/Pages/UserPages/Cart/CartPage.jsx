@@ -25,7 +25,7 @@ const CartPage = () => {
   const fetchData = async () => {
     setIsLoading(true);
         try {
-        const response = await axios.get(' https://login.wegostores.com/user/v1/welcome_offer', {
+        const response = await axios.get(' https://bcknd.wegostores.com/public/user/v1/welcome_offer', {
             headers: {
                 Authorization: `Bearer ${auth.user.token}`,
             },
@@ -117,7 +117,7 @@ const CartPage = () => {
 
     try {
       const response = await axios.post(
-        " https://login.wegostores.com/user/v1/promocode",
+        " https://bcknd.wegostores.com/public/user/v1/promocode",
         formattedData,
         {
           headers: {

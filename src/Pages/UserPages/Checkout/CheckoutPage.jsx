@@ -40,7 +40,7 @@ const CheckoutPage = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        i18n.language==='ar'?" https://login.wegostores.com/user/v1/subscription/payment_methods?locale=ar":" https://login.wegostores.com/user/v1/subscription/payment_methods",
+        i18n.language==='ar'?" https://bcknd.wegostores.com/public/user/v1/subscription/payment_methods?locale=ar":" https://bcknd.wegostores.com/public/user/v1/subscription/payment_methods",
         {
           headers: {
             Authorization: `Bearer ${auth.user.token}`,
@@ -175,7 +175,7 @@ const CheckoutPage = () => {
         setIsLoading(true); // Set loading state
   
         const response = await axios.post(
-          " https://login.wegostores.com/user/v1/cart",
+          " https://bcknd.wegostores.com/public/user/v1/cart",
           // requestData, 
           formData,
           {
@@ -259,7 +259,7 @@ const CheckoutPage = () => {
         setIsLoading(true);
   
         const response = await axios.post(
-          " https://login.wegostores.com/user/v1/payment/credit",
+          " https://bcknd.wegostores.com/public/user/v1/payment/credit",
           requestData,
           {
             headers: {

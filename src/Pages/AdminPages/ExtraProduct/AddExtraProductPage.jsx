@@ -101,7 +101,7 @@ const AddExtraProductPage = () => {
     const fetchData = async () => {
         setIsLoading(true);
         try {
-               const response = await axios.get(' https://login.wegostores.com/admin/v1/plan/show', {
+               const response = await axios.get(' https://bcknd.wegostores.com/public/admin/v1/plan/show', {
                       headers: {
                              Authorization: `Bearer ${auth.user.token}`,
                       },
@@ -352,7 +352,7 @@ const AddExtraProductPage = () => {
     
             // Sending the form data via POST request
             const response = await axios.post(
-                ' https://login.wegostores.com/admin/v1/extra/create',
+                ' https://bcknd.wegostores.com/public/admin/v1/extra/create',
                 formData,
                 {
                     headers: {

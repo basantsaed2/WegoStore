@@ -28,9 +28,9 @@ const UserSubscriptionsPage = () => {
         try {
             let url;
             if (i18n.language === 'ar') {
-                url = ' https://login.wegostores.com/user/v1/subscription?locale=ar'; // Arabic URL
+                url = ' https://bcknd.wegostores.com/public/user/v1/subscription?locale=ar'; // Arabic URL
             } else {
-                url = ' https://login.wegostores.com/user/v1/subscription'; // Non-Arabic URL (assuming English or other)
+                url = ' https://bcknd.wegostores.com/public/user/v1/subscription'; // Non-Arabic URL (assuming English or other)
             }
            
             const response = await axios.get(url, {
@@ -58,7 +58,7 @@ const UserSubscriptionsPage = () => {
     
         try {
             const response = await axios.post(
-                ' https://login.wegostores.com/user/v1/cart/pending',
+                ' https://bcknd.wegostores.com/public/user/v1/cart/pending',
                 {
                     id: plan.id, // Properly include plan.id as a key-value pair
                     type: "plan",
@@ -203,7 +203,7 @@ const UserSubscriptionsPage = () => {
     const ProfilefetchData = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get(' https://login.wegostores.com/user/v1/profile', {
+            const response = await axios.get(' https://bcknd.wegostores.com/public/user/v1/profile', {
                 headers: {
                     Authorization: `Bearer ${auth.user.token}`,
                 },
