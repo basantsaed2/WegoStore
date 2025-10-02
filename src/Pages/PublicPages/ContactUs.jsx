@@ -1,12 +1,22 @@
 import { useTranslation } from "react-i18next";
 import logo from "../../../public/Images/LogoImage.png";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const ContactSection = ({id}) => {
   const {t} = useTranslation()
+   useEffect(() => {
+      AOS.init({
+        duration: 1000, 
+        once: true,    
+      });
+    }, []);
     return (
-      <section id={id} className="py-16 bg-mainColor text-secoundColor shadow-custom">
+      <section id={id} className="py-16 bg-mainColor text-secoundColor shadow-custom"    
+           data-aos="fade-up">
       {/* Section Title */}
-      <div className="flex justify-center items-center text-center flex-col">
-        <h2 className="text-3xl font-bold text-center mb-4">
+      <div className="flex flex-col items-center justify-center text-center">
+        <h2 className="mb-4 text-3xl font-bold text-center">
           {t("We are happy to answer your questions at any time.")}
         </h2>
     
@@ -17,17 +27,17 @@ const ContactSection = ({id}) => {
       </div>
     
       {/* Form and Image Container */}
-      <div className="flex flex-col-reverse lg:flex-row justify-between items-center max-w-6xl mx-auto">
+      <div className="flex flex-col-reverse items-center justify-between max-w-6xl mx-auto lg:flex-row">
         {/* Left Section: Form */}
-        <div className="w-full lg:w-1/2 space-y-4">
-          <form className="space-y-6 p-8 rounded-lg shadow-md bg-mainColor">
+        <div className="w-full space-y-4 lg:w-1/2">
+          <form className="p-8 space-y-6 rounded-lg shadow-md bg-mainColor">
             {/* Full Name */}
             <div className="flex flex-col">
               <input
                 type="text"
                 id="fullName"
                 name="fullName"
-                className="border-b bg-transparent border-b-gray-300 p-3 focus:outline-none focus:ring-2"
+                className="p-3 bg-transparent border-b border-b-gray-300 focus:outline-none focus:ring-2"
                 placeholder={t("Enter your full name")}
               />
             </div>
@@ -38,7 +48,7 @@ const ContactSection = ({id}) => {
                 type="email"
                 id="email"
                 name="email"
-                className="border-b bg-transparent border-b-gray-300 p-3 focus:outline-none focus:ring-2"
+                className="p-3 bg-transparent border-b border-b-gray-300 focus:outline-none focus:ring-2"
                 placeholder={t("Enter your email")}
               />
             </div>
@@ -49,7 +59,7 @@ const ContactSection = ({id}) => {
                 type="text"
                 id="phone"
                 name="phone"
-                className="border-b bg-transparent border-b-gray-300 p-3 focus:outline-none focus:ring-2"
+                className="p-3 bg-transparent border-b border-b-gray-300 focus:outline-none focus:ring-2"
                 placeholder={t("Enter your phone number")}
               />
             </div>
@@ -59,7 +69,7 @@ const ContactSection = ({id}) => {
               <textarea
                 id="description"
                 name="description"
-                className="border-b bg-transparent border-b-gray-300 p-3 focus:outline-none focus:ring-2"
+                className="p-3 bg-transparent border-b border-b-gray-300 focus:outline-none focus:ring-2"
                 placeholder={t("Write your message or inquiry")}
                 rows="4"
               ></textarea>
@@ -68,7 +78,7 @@ const ContactSection = ({id}) => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full py-3 bg-secoundColor text-mainColor font-semibold rounded-lg focus:outline-none"
+              className="w-full py-3 font-semibold rounded-lg bg-secoundColor text-mainColor focus:outline-none"
             >
               {t("Send")}
             </button>
@@ -76,7 +86,7 @@ const ContactSection = ({id}) => {
         </div>
     
         {/* Right Section: Image */}
-        <div className="w-full lg:w-1/2 flex justify-center">
+        <div className="flex justify-center w-full lg:w-1/2">
           <img
             src={logo} // Replace with your image source
             alt="Contact Image"

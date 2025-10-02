@@ -9,7 +9,12 @@ const Plan = ({ id }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [isAnnual, setIsAnnual] = useState(false); // Track the toggle for monthly/annually
-
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: true,    
+    });
+  }, []);
   const handleNavigate = () => {
     navigate("/signUp");
   };
@@ -29,16 +34,16 @@ const Plan = ({ id }) => {
   }, []);
 
   return (
-    <section id={id} className="bg-secoundColor text-mainColor py-10 px-5">
-      <div className="text-center mb-12">
-        <h1 className="text-3xl md:text-5xl font-extrabold">
+    <section id={id} className="px-5 py-10 bg-secoundColor text-mainColor">
+      <div className="mb-12 text-center">
+        <h1 className="text-3xl font-extrabold md:text-5xl">
           {t("Find the plan that meets your needs")}
         </h1>
-        <p className="text-base md:text-lg mt-4">
+        <p className="mt-4 text-base md:text-lg">
           {t("Explore our diverse plans and select the one that best suits your needs. Click")}
           <strong
             onClick={handleNavigate}
-            className="ml-2 cursor-pointer text-blue-400"
+            className="ml-2 text-blue-400 cursor-pointer"
           >
             {t("Start Now")}
           </strong>{" "}
@@ -47,15 +52,15 @@ const Plan = ({ id }) => {
       </div>
 
      {/* Monthly / Annually Switch with Icon */}
-<div className="flex justify-center items-center mb-8">
+<div className="flex items-center justify-center mb-8">
   <p className="font-bold">{t("Pay monthly")}</p>
-  <label htmlFor="toggle" className="mx-4 relative flex items-center cursor-pointer">
+  <label htmlFor="toggle" className="relative flex items-center mx-4 cursor-pointer">
     <input
       type="checkbox"
       id="toggle"
       checked={isAnnual}
       onChange={handleToggle}
-      className="absolute opacity-0 w-0 h-0"
+      className="absolute w-0 h-0 opacity-0"
     />
     {/* Toggle Background */}
     <span
@@ -81,11 +86,11 @@ const Plan = ({ id }) => {
 </div>
 
 
-      <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-3 lg:justify-items-center">
+      <div className="flex flex-col items-center gap-6 lg:grid lg:grid-cols-3 lg:justify-items-center" >
         {/* Personal Plan */}
-        <div className="text-secoundColor border h-auto border-mainColor bg-mainColor p-6 rounded-lg shadow-lg w-full sm:w-80 lg:w-96 relative">
-          <h1 className="text-2xl font-bold text-start mb-4">{t("Personal")}</h1>
-          <p className="text-start text-3xl font-semibold mb-4">
+        <div className="relative w-full h-auto p-6 border rounded-lg shadow-lg text-secoundColor border-mainColor bg-mainColor sm:w-80 lg:w-96">
+          <h1 className="mb-4 text-2xl font-bold text-start">{t("Personal")}</h1>
+          <p className="mb-4 text-3xl font-semibold text-start">
             {isAnnual ? (
               <>
                 $199 <span className="text-sm">/ Year</span>
@@ -96,12 +101,12 @@ const Plan = ({ id }) => {
               </>
             )}
           </p>
-          <p className="text-center mb-4">
+          <p className="mb-4 text-center">
             {t("All the basic features to boost your freelance career")}
           </p>
 
-          <div className="border-t border-mainColor pt-4">
-            <ul className="space-y-4 text-left text-sm md:text-base">
+          <div className="pt-4 border-t border-mainColor">
+            <ul className="space-y-4 text-sm text-left md:text-base">
               <li className="flex items-center justify-between">
                 <div className="flex items-center">
                   <FaCheckCircle className="ml-2" />
@@ -141,19 +146,19 @@ const Plan = ({ id }) => {
           </div>
           <button
             onClick={handleNavigate}
-            className="py-3 mt-4 w-full text-lg font-medium border rounded-b-lg bg-mainColor text-secoundColor"
+            className="w-full py-3 mt-4 text-lg font-medium border rounded-b-lg bg-mainColor text-secoundColor"
           >
             {t("Start Now")}
           </button>
         </div>
 
         {/* Professional Plan */}
-        <div className="bg-gradient-to-br from-mainColor h-auto to-gray-900 text-secoundColor p-6 rounded-lg shadow-2xl w-full sm:w-80 lg:w-96 relative">
+        <div className="relative w-full h-auto p-6 rounded-lg shadow-2xl bg-gradient-to-br from-mainColor to-gray-900 text-secoundColor sm:w-80 lg:w-96" data-aos="flip-down">
           <span className="absolute top-[-20px] left-1/2 transform -translate-x-1/2 border border-blue-100 bg-mainColor text-secoundColor text-sm md:text-lg font-semibold py-2 px-10 rounded-xl shadow-lg mb-5">
             {t("Best Seller")}
           </span>
-          <h1 className="text-2xl font-bold text-start mb-4">{t("Professional")}</h1>
-          <p className="text-start text-3xl font-semibold mb-4">
+          <h1 className="mb-4 text-2xl font-bold text-start">{t("Professional")}</h1>
+          <p className="mb-4 text-3xl font-semibold text-start">
             {isAnnual ? (
               <>
                 $499 <span className="text-sm">/ {t("Year")}</span>
@@ -164,12 +169,12 @@ const Plan = ({ id }) => {
               </>
             )}
           </p>
-          <p className="text-center mb-4">
+          <p className="mb-4 text-center">
             {t("All the basic features to boost your freelance career")}
           </p>
 
-          <div className="border-t border-secoundColor pt-4">
-            <ul className="space-y-4 text-left text-sm md:text-base">
+          <div className="pt-4 border-t border-secoundColor">
+            <ul className="space-y-4 text-sm text-left md:text-base">
               <li className="flex items-center justify-between">
                 <div className="flex items-center">
                   <FaCheckCircle className="ml-2" />
@@ -209,16 +214,16 @@ const Plan = ({ id }) => {
           </div>
           <button
             onClick={handleNavigate}
-            className="py-3 mt-4 w-full text-lg font-medium border rounded-b-lg bg-mainColor text-white"
+            className="w-full py-3 mt-4 text-lg font-medium text-white border rounded-b-lg bg-mainColor"
           >
             {t("Start Now")}
           </button>
         </div>
 
         {/* Business Plan */}
-        <div className="text-mainColor border h-auto border-mainColor p-6 rounded-lg shadow-lg w-full sm:w-80 lg:w-96 relative">
-          <h1 className="text-2xl font-bold text-start mb-4">{t("Business")}</h1>
-          <p className="text-start text-3xl font-semibold mb-4">
+        <div className="relative w-full h-auto p-6 border rounded-lg shadow-lg text-mainColor border-mainColor sm:w-80 lg:w-96" data-aos="flip-down">
+          <h1 className="mb-4 text-2xl font-bold text-start">{t("Business")}</h1>
+          <p className="mb-4 text-3xl font-semibold text-start">
             {isAnnual ? (
               <>
                 $999 <span className="text-sm">/ Year</span>
@@ -229,12 +234,12 @@ const Plan = ({ id }) => {
               </>
             )}
           </p>
-          <p className="text-center mb-4">
+          <p className="mb-4 text-center">
             {t("All the basic features to boost your freelance career")}
           </p>
 
-          <div className="border-t border-mainColor pt-4">
-            <ul className="space-y-4 text-left text-sm md:text-base">
+          <div className="pt-4 border-t border-mainColor">
+            <ul className="space-y-4 text-sm text-left md:text-base">
               <li className="flex items-center justify-between">
                 <div className="flex items-center">
                   <FaCheckCircle className="ml-2" />
@@ -274,7 +279,7 @@ const Plan = ({ id }) => {
           </div>
           <button
             onClick={handleNavigate}
-            className="py-3 mt-4 w-full text-lg font-medium border rounded-b-lg bg-mainColor text-secoundColor"
+            className="w-full py-3 mt-4 text-lg font-medium border rounded-b-lg bg-mainColor text-secoundColor"
           >
             {t("Start Now")}
           </button>

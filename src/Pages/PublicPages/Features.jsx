@@ -45,7 +45,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Features = () => {
+const Features = ({id}) => {
   const featuresData = [
     { icon: <I1 />, title: "Log in via social media" },
     { icon: <I2 />, title: "Share on social media" },
@@ -73,34 +73,33 @@ const Features = () => {
   const { t } = useTranslation();
 
   // Function to handle navigation
-  useEffect(() => {
-    // Initialize AOS with custom settings (optional)
+ useEffect(() => {
     AOS.init({
-      duration: 1000, // animation duration (milliseconds)
-      easing: 'ease-in-out', // easing function
-      once: false, // animation will happen only once (not repeat on scroll)
-      mirror: true,
+      duration: 1000, 
+      once: true,    
     });
   }, []);
 
   return (
-    <section className="features px-2 py-5 mt-4 bg-secoundColor">
+    <section id={id} className="px-2 py-5 mt-4 features bg-secoundColor">
       {/* Section Title */}
-      <h2 className="text-3xl font-bold text-center mb-4 mt-6 text-mainColor">{t("Our Features")}</h2>
-      <p className="text-center text-xl text-mainColor mb-8">
+      <h2 className="mt-6 mb-4 text-3xl font-bold text-center text-mainColor">{t("Our Features")}</h2>
+      <p className="mb-8 text-xl text-center text-mainColor">
         {t("Technology experts, committed to providing you with the best.")}
       </p>
-      <div className="flex flex-wrap justify-center p-10 text-secoundColor gap-10">
+      <div className="flex flex-wrap justify-center gap-10 p-10 text-secoundColor">
         {featuresData.map((feature, index) => (
           <Link
             to='features'
             key={index}
-            className="w-64 md:w-48 lg:w-1/5 p-6 bg-gray-200 border border-gray-300 rounded-lg shadow-lg"
+            className="w-64 p-6 bg-gray-200 border border-gray-300 rounded-lg shadow-lg md:w-48 lg:w-1/5"
+            data-aos="flip-up" 
+            ata-aos-delay="300"
           >
-            <div className="icon flex items-center text-mainColor justify-center text-8xl w-full h-32 mb-4">
+            <div className="flex items-center justify-center w-full h-32 mb-4 icon text-mainColor text-8xl">
               {feature.icon}
             </div>
-            <h3 className="text-center text-mainColor text-lg font-semibold">{t(feature.title)}</h3>
+            <h3 className="text-lg font-semibold text-center text-mainColor">{t(feature.title)}</h3>
           </Link>
         ))}
       </div>

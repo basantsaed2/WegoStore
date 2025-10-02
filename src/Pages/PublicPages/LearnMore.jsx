@@ -7,7 +7,6 @@ const LearnMoreSection = () => {
   const {t} = useTranslation();
 
   const toggleAnswer = (index) => {
-    // Toggle the selected question: if it's already selected, collapse it
     setSelectedQuestion(selectedQuestion === index ? null : index);
   };
 
@@ -35,10 +34,10 @@ const LearnMoreSection = () => {
   ];
 
   return (
-    <section className="py-16 px-4 text-mainColor bg-secoundColor">
+    <section className="px-4 py-16 text-mainColor bg-secoundColor">
       {/* Section Title */}
-      <h2 className="text-3xl font-bold text-center mb-2 ">{t("Learn more about starting an online store")}</h2>
-      <p className="text-center text-lg text-gray-600 mb-8 ">
+      <h2 className="mb-2 text-3xl font-bold text-center ">{t("Learn more about starting an online store")}</h2>
+      <p className="mb-8 text-lg text-center text-gray-600 ">
        {t("Need help creating your online store? We're ready to assist you. We'll answer your common questions in detail.")}
       </p>
 
@@ -46,24 +45,27 @@ const LearnMoreSection = () => {
       <div className="w-full space-y-6 p-7">
         {questionsAndAnswers.map((item, index) => (
           <div
+          data-aos="flip-up" 
+          data-aos-delay="300"
             key={index}
-            className="rounded-lg shadow-lg p-6  border-b border-mainColor transition-transform duration-200 "
+            className="p-6 transition-transform duration-200 border-b rounded-lg shadow-lg border-mainColor "
           >
             {/* Question and Icon */}
-            <div className="flex justify-between items-center w-full cursor-pointer" onClick={() => toggleAnswer(index)}>
+            <div className="flex items-center justify-between w-full cursor-pointer" onClick={() => toggleAnswer(index)}>
               {/* Text on Left */}
-              <div className="flex items-center space-x-4 w-10/12">
+              <div className="flex items-center w-10/12 space-x-4">
                 <p className="text-xl font-semibold text-mainColor">{t(`${item.question}`)}</p>
               </div>
               {/* Icon on Right with hover effect */}
-              <div className="flex items-center space-x-4 w-2/12 justify-end">
-                <span className="text-mainColor text-2xl transition-colors duration-300 hover:text-blue-200">+</span>
+              <div className="flex items-center justify-end w-2/12 space-x-4">
+                <span className="text-2xl transition-colors duration-300 text-mainColor hover:text-blue-200">+</span>
               </div>
             </div>
 
             {/* Answer text */}
             {selectedQuestion === index && (
-              <p className="text-mainColor mt-4 text-xl">{t(`${item.answer}`)}</p>
+              <p className="mt-4 text-xl text-mainColor"           data-aos="flip-down" 
+>{t(`${item.answer}`)}</p>
             )}
           </div>
         ))}

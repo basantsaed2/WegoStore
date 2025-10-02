@@ -782,16 +782,16 @@ const resources = {
     },
   },
 };
-
 i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'en', // default language
+    lng: localStorage.getItem("lang") || "en", 
     keySeparator: false,
     interpolation: {
       escapeValue: false, // React already escapes
     },
   });
+
 
 export default i18n;
