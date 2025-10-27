@@ -63,6 +63,7 @@ import SubscriptionLayout from "./Layouts/AdminLayouts/SubscriptionLayout.jsx";
 import { CartPage } from "./Pages/AllPages.js";
 import EmailVerification from "./Pages/RegisterPages/EmailVerification.jsx";
 import FeaturesPage from "./Pages/PublicPages/OurFeatureData.jsx";
+import Demos from "./Pages/PublicPages/Demos.jsx"
 /* User Dashboard */
 const AppLayoutUser = () => (
   <>
@@ -157,6 +158,10 @@ export const router = createBrowserRouter([
 {
   path:"features",
   element:<FeaturesPage/>
+},
+{
+  path:"demos",
+  element:<Demos/>
 },
     //EmailVerification
     {

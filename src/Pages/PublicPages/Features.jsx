@@ -63,10 +63,10 @@ const Features = ({id}) => {
     { icon: <I14 />, title: "Pay with Visa cards" },
     { icon: <I15 />, title: "Smart Payment System" },
     { icon: <I16 />, title: "Responsive website" },
-    { icon: <I17 />, title: "Multiple shipping methods" },
-    { icon: <I18 />, title: "Online payment via credit cards" },
+    // { icon: <I17 />, title: "Multiple shipping methods" },
+    // { icon: <I18 />, title: "Online payment via credit cards" },
     { icon: <I19 />, title: "Multiple shipping methods" },
-    { icon: <I20 />, title: "Online payment with credit cards" },
+      // { icon: <I20 />, title: "Online payment with credit cards" },
     
   ];
   

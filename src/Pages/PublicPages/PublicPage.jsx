@@ -86,6 +86,10 @@ const PublicPage = () => {
           navigate('/signUp')
 
          }
+         const handlecurd =()=>{
+          navigate('/demos')
+
+         }
   useEffect(() => {
     AOS.init({
       duration: 1000, 
@@ -304,7 +308,7 @@ const PublicPage = () => {
     <div className={`flex flex-wrap items-center gap-4 w-full  ${i18n.language === "ar" ? "flex-row-reverse justify-end" : ""}`}>
       {/* Button 1 */}
       <button
-        onClick={() => handleNavigate()}
+        onClick={() => handlecurd()}
         className="flex items-center px-4 py-2 text-sm font-medium transition-colors duration-300 border sm:text-lg sm:py-3 sm:px-6 lg:px-8 lg:py-4 border-secoundColor rounded-xl bg-secoundColor text-mainColor hover:bg-blue-200 hover:text-mainColor"
       >
         {t("Explore Demo")}
