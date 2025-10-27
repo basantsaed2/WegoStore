@@ -33,7 +33,7 @@ import { CiGlobe } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io"; 
 import { IoNotifications } from "react-icons/io5";
 import AOS from 'aos';
-
+import entro from '../../../public/Images/entro.mp4'
 import FeaturesPage from "./OurFeatureData";
 import { FaLightbulb, FaCheckCircle, FaHeadset } from 'react-icons/fa';
 import { CgMenu } from 'react-icons/cg';
@@ -55,6 +55,13 @@ const PublicPage = () => {
       i18n.changeLanguage(savedLang);
     }
   }, [i18n]);
+ const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.5;
+    }
+  }, []);
 
   
          const handleOptionClick = (value) => {
@@ -617,15 +624,20 @@ const PublicPage = () => {
   </p>
 
   {/* Video */}
-  <div className="w-full max-w-4xl aspect-video">
-    <iframe
-      src="https://www.youtube.com/embed/example-video-id?autoplay=1" // Replace with your video URL and enable autoplay
-      title="Site Tour Video"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-      className="w-full h-full rounded-lg shadow-md"
-    ></iframe>
-  </div>
+ <div className="w-full max-w-4xl aspect-video">
+  <video
+          ref={videoRef}
+    src={entro} // مسار الفيديو (من public أو من API)
+    controls
+    autoPlay
+    muted
+    loop
+    className="object-cover w-full h-full rounded-lg shadow-md"
+  >
+    متصفحك لا يدعم تشغيل الفيديو.
+  </video>
+</div>
+
 </section>
 
 
